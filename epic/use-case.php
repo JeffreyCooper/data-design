@@ -20,9 +20,8 @@
 					<li>Search for Cat Condo</li>
 					<li>Click to view Very Bad Cat Condo</li>
 					<li>Click to favorite Very Bad Cat Condo</li>
-					<li></li>
 				</ol>
-			<<h3>Interaction Flow</h3>
+			<h3>Interaction Flow</h3>
 				<ol>
 					<li>User enters Cat Condo Design into Search Bar.</li>
 					<li>Site returns search results of Cat Condo.</li>
