@@ -16,8 +16,7 @@
 			<h2>Ellen Nicol</h2>
 			<!--Add relevant image-->
 			<img src="../images/ellen-nicol.jpg" alt="Ellen Nicol" />
-			<p>Ellen Nicol is a 59 year old Grandmother and Seamstress living in Albuquerque, NM.
-			</p>
+			<p>Ellen Nicol is a 59 year old Grandmother and Seamstress living in Albuquerque, NM.</p>
 			<h3>Ellen Nicol's Profile</h3>
 			<h4>General</h4>
 				<ul>
