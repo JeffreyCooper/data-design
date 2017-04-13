@@ -28,19 +28,16 @@
 				<ul>
 					<li>productId (primary key)</li>
 					<li>productProfileId (foreign key)</li>
-					<li>productContent</li>
-					<li>productDate</li>
+					<li>productTitle</li>
+					<li>productDescription</li>
 				</ul>
 			<h3>FAVORITE</h3>
 				<ul>
 					<li>favProfileId (foreign key)</li>
 					<li>favProductId (foreign key)</li>
-					<li>favDate</li>
-					<li>Relations</li>
 				</ul>
 			<h3>Relations</h3>
 				<ul>
-					<li>1 Profile can favorite many Products - (1 to n)</li>
 					<li>Many Profiles can favorite many Products - (m to n)</li>
 					<li>Many Products can have many Favorites - (m to n)</li>
 				</ul>
