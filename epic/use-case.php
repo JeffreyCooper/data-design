@@ -17,7 +17,7 @@
 			<h3>User Story:</h3>
 			<p>As a user, I want to favorite Very Bad Cat Condo from www.verybadetsy.com.</p>
 				<ol>
-					<li>Click on Favorite Button at top right corner of Very Bad Cat Condo page.</li>
+					<li>Click Login button.</li>
 					<li>Enter Username in login screen.</li>
 					<li>Enter Password in login screen.</li>
 					<li>Press Login Button on login screen.</li>
@@ -29,9 +29,9 @@
 					<li>User clicks on Profile Login button.</li>
 					<li>Site returns login screen to identify user.</li>
 					<li>User enters username and password on login screen.</li>
-					<li>Site verifies existence of user and logs him/her in.</li>
+					<li>Site verifies existence of user and logs user in.</li>
 					<li>User clicks on favorite button on top right of Product page.</li>
-					<li>Site logs favorite for Very Bad Cat Condo by User</li>
+					<li>Site logs favorite for Product by User</li>
 				</ol>
 		</main>
 	</body>
