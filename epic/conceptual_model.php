@@ -2,19 +2,43 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>HTML Sandbox</title>
+		<title>Conceptual Model</title>
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/sandbox-style.css" type="text/css" />
+		<link rel="stylesheet" href="../css/data-design-style.css" type="text/css" />
 		<!--		Custom JavaScript-->
-		<script type="text-javascript" src="js/sandbox-scripts.js"></script>
+		<script type="text-javascript" src="../js/data-design-script.js"></script>
 	</head>
 	<body>
 		<header>
-			<h1>HTML Sandbox</h1>
+			<h1>Conceptual Model</h1>
 		</header>
 		<main>
-			<h2>Text:</h2>
-			<p>Bicycle rights schlitz live-edge mixtape fam, beard meditation kinfolk forage. Echo park PBR&B bitters tumblr pickled enamel pin, franzen helvetica tousled everyday carry glossier gluten-free pinterest. Normcore paleo slow-carb synth. Direct trade lomo glossier woke, yr hexagon raclette ethical yuccie aesthetic selfies tumblr street art. Cray franzen butcher kogi kickstarter authentic. Photo booth cold-pressed banh mi forage, knausgaard farm-to-table health goth tilde pork belly offal franzen. Pour-over cold-pressed marfa truffaut, normcore trust fund tumeric synth.
+			<h2>Entities & Attributes</h2>
+			<p>PROFILE
+
+				profileId (primary key)
+				profileActivationToken (for account verification)
+				profileAtHandle
+				profileEmail
+				profileHash (for account password)
+				profilePhone
+				profileSalt (for account password)
+				TWEET
+
+				tweetId (primary key)
+				tweetProfileId (foreign key)
+				tweetContent
+				tweetDate
+				LIKE
+
+				likeProfileId (foreign key)
+				likeTweetId (foreign key)
+				likeDate
+				Relations
+
+				One Profile can write many Tweets - (1 to n)
+				Many Profiles can like many Tweets - (m to n)
+				Many Tweets can have many Likes - (m to n)
 			</p>
 			<!--Add relevant image-->
 			<img src="images/sandbox-normandy-beach.jpg" alt="Sandbox of Normandy Beach" />
@@ -62,30 +86,3 @@
 </html>
 
 
-Entities & Attributes
-
-PROFILE
-
-profileId (primary key)
-profileActivationToken (for account verification)
-	profileAtHandle
-profileEmail
-profileHash (for account password)
-	profilePhone
-profileSalt (for account password)
-	TWEET
-
-tweetId (primary key)
-tweetProfileId (foreign key)
-tweetContent
-tweetDate
-LIKE
-
-likeProfileId (foreign key)
-likeTweetId (foreign key)
-likeDate
-Relations
-
-One Profile can write many Tweets - (1 to n)
-Many Profiles can like many Tweets - (m to n)
-Many Tweets can have many Likes - (m to n)

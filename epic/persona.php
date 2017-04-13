@@ -14,22 +14,25 @@
 		</header>
 		<main>
 			<h2>Ellen Nicol</h2>
-			<p>Bicycle rights schlitz live-edge mixtape fam, beard meditation kinfolk forage. Echo park PBR&B bitters tumblr pickled enamel pin, franzen helvetica tousled everyday carry glossier gluten-free pinterest. Normcore paleo slow-carb synth. Direct trade lomo glossier woke, yr hexagon raclette ethical yuccie aesthetic selfies tumblr street art. Cray franzen butcher kogi kickstarter authentic. Photo booth cold-pressed banh mi forage, knausgaard farm-to-table health goth tilde pork belly offal franzen. Pour-over cold-pressed marfa truffaut, normcore trust fund tumeric synth.
-			</p>
 			<!--Add relevant image-->
 			<img src="../images/ellen-nicol.jpg" alt="Ellen Nicol" />
-			<h3>A List of Things</h3>
+			<p>Ellen Nicol is a 59 year old Grandmother and Seamstress living in Albuquerque, NM.
+			</p>
+
+			<h3>Ellen Nicol's Profile</h3>
 			<ul>
-				<li>Mom</li>
-				<li>Dad</li>
-				<li>Ju</li>
+				<li>Hometown: Albuquerque, NM</li>
+				<li>Occupation: Seamstress</li>
+				<li>Age: 59</li>
+				<li>Hobbies: Quilting, Sewing, Church, Grand-children.</li>
+				<li>Favotie Foods: Nutrition Bars; Enchiladas; Tuna</li>
+				<li>Relationship Status: Married for 40 years.</li>
+				<li>Annual Income: 80K to 100K</li>
+				<li>Automobile: Toyota Rav4</li>
+				<li>Past Occupations: Teacher, Secretary</li>
 			</ul>
-			<ol>
-				<li>Jan</li>
-				<li>Bob</li>
-				<li>Josh</li>
-				<li>Bradley</li>
-			</ol>
+
+
 
 			<h3>Cats &amp; Dogs</h3>
 			<table>
@@ -57,16 +60,3 @@
 		</main>
 	</body>
 </html>
-
-
-Name: Ellen Nicol
-Age: 59
-Gender: Female
-Residence: Albuquerque, NM, USA
-Occupation: Seamstress
-Past Occupations: Teacher, Secretary
-Hobbies: Quilting, Sewing, Church, Grand-children.
-Favotie Foods: Nutrition Bars; Enchiladas; Tuna
-Relationship Status: Married for 40 years.
-Annual Income: 80K to 100K
-Automobile: Toyota Rav4
