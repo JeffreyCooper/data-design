@@ -15,13 +15,19 @@
 		<main>
 			<h2>Ellen wants to find a crafting idea to create a gift for a friend's birthday.</h2>
 			<h3>User Story:</h3>
-			<p>As a user, I want to download a file describing how to build a cat condo</p>
+			<p>As a user, I want to learn how to build a cat condo from instructions on the website.</p>
 				<ol>
-					<li>Go to www.data-design.com</li>
 					<li>Search for Cat Condo Design</li>
 					<li>Click to view Cat Condo Design</li>
-					<li>Click to download PDF file of Cat Condo Design.</li>
 				</ol>
+			<<h3>Interaction Flow</h3>
+				<ol>
+					<li>User enters Cat Condo Design into Search Bar.</li>
+					<li>Site returns search results of Cat Condo Design.</li>
+					<li>User clicks on Cat Condo Design.</li>
+					<li>Site transfers user to page Cat Condo Design.</li>
+				</ol>
+
 		</main>
 	</body>
 </html>
