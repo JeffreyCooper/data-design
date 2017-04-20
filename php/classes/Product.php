@@ -3,7 +3,7 @@
 namespace Edu\Cnm\DataDesign;
 require_once("autoload.php");
 /**
- * Small Cross Section of a 'Profile'.
+ * Small Cross Section of a 'Product'.
  *
  * ***more description***
  *
@@ -12,14 +12,14 @@ require_once("autoload.php");
  **/
 
 /**
- * Class Profile
+ * Class Product
  * @package Edu\Cnm\DataDesign
  * HELP - I don't know what the 'implements' means
  **/
-class Profile implements \JsonSerializable {
+class Product implements \JsonSerializable {
 	use ValidateDate;
 	/**
-	 * id for this Profile; this is the primary key
+	 * id for this Product; this is the primary key
 	 * @var int $productId
 	 **/
 	private $productId;
