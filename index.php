@@ -4,9 +4,9 @@
 		<meta charset="utf-8" />
 		<title>HTML Sandbox</title>
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/sandbox-style.css" type="text/css" />
+		<link rel="stylesheet" href="public_html/css/sandbox-style.css" type="text/css" />
 		<!--		Custom JavaScript-->
-		<script type="text-javascript" src="js/sandbox-scripts.js"></script>
+		<script type="text-javascript" src="public_html/js/sandbox-scripts.js"></script>
 	</head>
 	<body>
 		<header>
@@ -17,7 +17,7 @@
 			<p>Bicycle rights schlitz live-edge mixtape fam, beard meditation kinfolk forage. Echo park PBR&B bitters tumblr pickled enamel pin, franzen helvetica tousled everyday carry glossier gluten-free pinterest. Normcore paleo slow-carb synth. Direct trade lomo glossier woke, yr hexagon raclette ethical yuccie aesthetic selfies tumblr street art. Cray franzen butcher kogi kickstarter authentic. Photo booth cold-pressed banh mi forage, knausgaard farm-to-table health goth tilde pork belly offal franzen. Pour-over cold-pressed marfa truffaut, normcore trust fund tumeric synth.
 </p>
 			<!--Add relevant image-->
-			<img src="images/sandbox-normandy-beach.jpg" alt="Sandbox of Normandy Beach" />
+			<img src="public_html/images/sandbox-normandy-beach.jpg" alt="Sandbox of Normandy Beach" />
 			<p>Want a surprise? <a href="http://www.swminiart.com" target="_blank">Click!</a></p>
 			<p>Want another surprise? <a href="about/index.php">Here you go!</a></p>
 

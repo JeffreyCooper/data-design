@@ -4,9 +4,9 @@
 		<meta charset="utf-8" />
 		<title>Conceptual Model</title>
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="../css/data-design-style.css" type="text/css" />
+		<link rel="stylesheet" href="../public_html/css/data-design-style.css" type="text/css" />
 		<!--		Custom JavaScript-->
-		<script type="text-javascript" src="../js/data-design-script.js"></script>
+		<script type="text-javascript" src="../public_html/js/data-design-script.js"></script>
 	</head>
 	<body>
 		<header>

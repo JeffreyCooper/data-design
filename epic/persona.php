@@ -4,9 +4,9 @@
 		<meta charset="utf-8" />
 		<title>Persona</title>
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="../css/data-design-style.css" type="text/css" />
+		<link rel="stylesheet" href="../public_html/css/data-design-style.css" type="text/css" />
 		<!--		Custom JavaScript-->
-		<script type="text-javascript" src="../js/data-design-script.js"></script>
+		<script type="text-javascript" src="../public_html/js/data-design-script.js"></script>
 	</head>
 	<body>
 		<header>
@@ -15,7 +15,7 @@
 		<main>
 			<h2>Ellen Nicol</h2>
 			<!--Add relevant image-->
-			<img src="../images/ellen-nicol.jpg" alt="Ellen Nicol" />
+			<img src="../public_html/images/ellen-nicol.jpg" alt="Ellen Nicol" />
 			<p>Ellen Nicol is a 59 year old Grandmother and Seamstress living in Albuquerque, NM.</p>
 			<h3>Ellen Nicol's Profile</h3>
 			<h4>General</h4>
