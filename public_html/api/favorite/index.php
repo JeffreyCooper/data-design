@@ -7,14 +7,14 @@ require_once dirname(__DIR__, 3) . "/php/lib/xsrf.php";
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 
 use Edu\Cnm\DataDesign\{
-	Product,
+	Favorite,
 	// testing purposes only
 	Profile
 };
 
 
 /**
- * api for the Product class
+ * api for the Favorite class
  *
  * @author Jeffrey Cooper <jcooper37@cnm.edu>
  **/
@@ -42,8 +42,8 @@ try {
 
 	//sanitize input
 	$id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
-	$productProfileId = filter_input(INPUT_GET, "productProfileId", FILTER_VALIDATE_INT);
-	$productTitle = filter_input(INPUT_GET, "productTitle", FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+	$tweetProfileId = filter_input(INPUT_GET, "tweetProfileId", FILTER_VALIDATE_INT);
+	$tweetContent = filter_input(INPUT_GET, "tweetContent", FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
 	//make sure the id is valid for methods that require it
 	if(($method === "DELETE" || $method === "PUT") && (empty($id) === true || $id < 0)) {
@@ -51,31 +51,31 @@ try {
 	}
 
 
-	// handle GET request - if id is present, that product is returned, otherwise all products are returned
+	// handle GET request - if id is present, that tweet is returned, otherwise all tweets are returned
 	if($method === "GET") {
 		//set XSRF cookie
 		setXsrfCookie();
 
-		//get a specific product or all products and update reply
+		//get a specific tweet or all tweets and update reply
 		if(empty($id) === false) {
-			$product = Product::getProductByProductId($pdo, $id);
-			if($product !== null) {
-				$reply->data = $product;
+			$tweet = Tweet::getTweetByTweetId($pdo, $id);
+			if($tweet !== null) {
+				$reply->data = $tweet;
 			}
-		} else if(empty($productProfileId) === false) {
-			$product = Product::getProductByProductProfileId($pdo, $productProfileId)->toArray();
-			if($product !== null) {
-				$reply->data = $product;
+		} else if(empty($tweetProfileId) === false) {
+			$tweet = Tweet::getTweetByTweetProfileId($pdo, $tweetProfileId)->toArray();
+			if($tweet !== null) {
+				$reply->data = $tweet;
 			}
 		} else if(empty($tweetContent) === false) {
-			$products = Product::getProductByProductTitle($pdo, $productTitle)->toArray();
-			if($products !== null) {
-				$reply->data = $products;
+			$tweets = Tweet::getTweetByTweetContent($pdo, $tweetContent)->toArray();
+			if($tweets !== null) {
+				$reply->data = $tweets;
 			}
 		} else {
-			$products = Product::getAllProducts($pdo)->toArray();
-			if($products !== null) {
-				$reply->data = $products;
+			$tweets = Tweet::getAllTweets($pdo)->toArray();
+			if($tweets !== null) {
+				$reply->data = $tweets;
 			}
 		}
 	} else if($method === "PUT" || $method === "POST") {
@@ -86,18 +86,18 @@ try {
 		$requestObject = json_decode($requestContent);
 		// This Line Then decodes the JSON package and stores that result in $requestObject
 
-		//make sure product title is available (required field)
-		if(empty($requestObject->productTitle) === true) {
-			throw(new \InvalidArgumentException ("No title for Product.", 405));
+		//make sure tweet content is available (required field)
+		if(empty($requestObject->tweetContent) === true) {
+			throw(new \InvalidArgumentException ("No content for Tweet.", 405));
 		}
 
-		// make sure product date is accurate (optional field)
-		if(empty($requestObject->productDescription) === true) {
-			$requestObject->productDescription = null;
+		// make sure tweet date is accurate (optional field)
+		if(empty($requestObject->tweetDate) === true) {
+			$requestObject->tweetDate = null;
 		}
 
 		//  make sure profileId is available
-		if(empty($requestObject->productProfileId) === true) {
+		if(empty($requestObject->tweetProfileId) === true) {
 			throw(new \InvalidArgumentException ("No Profile ID.", 405));
 		}
 
@@ -108,24 +108,24 @@ try {
 			verifyXsrf();
 
 
-			// retrieve the product to update
-			$product = Product::getProductByProductId($pdo, $id);
-			if($product === null) {
-				throw(new RuntimeException("Product does not exist", 404));
+			// retrieve the tweet to update
+			$tweet = Tweet::getTweetByTweetId($pdo, $id);
+			if($tweet === null) {
+				throw(new RuntimeException("Tweet does not exist", 404));
 			}
 
-			//enforce the user is signed in and only trying to edit their own product
-			if(empty($_SESSION["profile"]) === true || $_SESSION["profile"]->getProfileId() !== $product->getProductProfileId()) {
-				throw(new \InvalidArgumentException("You are not allowed to edit this product", 403));
+			//enforce the user is signed in and only trying to edit their own tweet
+			if(empty($_SESSION["profile"]) === true || $_SESSION["profile"]->getProfileId() !== $tweet->getTweetProfileId()) {
+				throw(new \InvalidArgumentException("You are not allowed to edit this tweet", 403));
 			}
 
 			// update all attributes
-			$product->setProductDescription($requestObject->productDescription);
-			$product->setProductTitle($requestObject->productTitle);
-			$product->update($pdo);
+			$tweet->setTweetDate($requestObject->tweetDate);
+			$tweet->setTweetContent($requestObject->tweetContent);
+			$tweet->update($pdo);
 
 			// update reply
-			$reply->message = "Product updated successfully!";
+			$reply->message = "Tweet updated OK";
 
 		} else if($method === "POST") {
 
@@ -134,15 +134,15 @@ try {
 
 			// enforce the user is signed in
 			if(empty($_SESSION["profile"]) === true) {
-				throw(new \InvalidArgumentException("you must be logged in to post products", 403));
+				throw(new \InvalidArgumentException("you must be logged in to post tweets", 403));
 			}
 
-			// create new product and insert into the database
-			$product = new Product(null, $requestObject->productProfileId, $requestObject->productTitle, null);
-			$product->insert($pdo);
+			// create new tweet and insert into the database
+			$tweet = new Tweet(null, $requestObject->tweetProfileId, $requestObject->tweetContent, null);
+			$tweet->insert($pdo);
 
 			// update reply
-			$reply->message = "Product created OK";
+			$reply->message = "Tweet created OK";
 		}
 
 	} else if($method === "DELETE") {
@@ -150,21 +150,21 @@ try {
 		//enforce that the end user has a XSRF token.
 		verifyXsrf();
 
-		// retrieve the Product to be deleted
-		$product = Product::getProductByProductId($pdo, $id);
-		if($product === null) {
-			throw(new RuntimeException("Product does not exist", 404));
+		// retrieve the Tweet to be deleted
+		$tweet = Tweet::getTweetByTweetId($pdo, $id);
+		if($tweet === null) {
+			throw(new RuntimeException("Tweet does not exist", 404));
 		}
 
-		//enforce the user is signed in and only trying to edit their own product
-		if(empty($_SESSION["profile"]) === true || $_SESSION["profile"]->getProfileId() !== $product->getProductProfileId()) {
-			throw(new \InvalidArgumentException("You are not allowed to delete this product", 403));
+		//enforce the user is signed in and only trying to edit their own tweet
+		if(empty($_SESSION["profile"]) === true || $_SESSION["profile"]->getProfileId() !== $tweet->getTweetProfileId()) {
+			throw(new \InvalidArgumentException("You are not allowed to delete this tweet", 403));
 		}
 
-		// delete product
-		$product->delete($pdo);
+		// delete tweet
+		$tweet->delete($pdo);
 		// update reply
-		$reply->message = "Product deleted successfully!";
+		$reply->message = "Tweet deleted OK";
 	} else {
 		throw (new InvalidArgumentException("Invalid HTTP method request"));
 	}
