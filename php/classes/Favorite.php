@@ -25,7 +25,7 @@ class Favorite implements \JsonSerializable {
 	private $productId;
 	/**
 	 * id of the Profile that 'favorited' this Product; this is a foreign key
-	 * @var int $productProfileId
+	 * @var int $favProfileId
 	 **/
 	private $productProfileId;
 	/**

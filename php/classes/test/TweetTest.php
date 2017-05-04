@@ -32,12 +32,12 @@ class TweetTest extends DataDesignTest {
 	 * content of the Tweet
 	 * @var string $VALID_TWEETCONTENT
 	 **/
-	protected $VALID_TWEETCONTENT = "PHPUnit test passing";
+	protected $VALID_TWEETCONTENT = "Unit test is passing";
 	/**
 	 * content of the updated Tweet
 	 * @var string $VALID_TWEETCONTENT2
 	 **/
-	protected $VALID_TWEETCONTENT2 = "PHPUnit test still passing";
+	protected $VALID_TWEETCONTENT2 = "Unit test is still passing";
 	/**
 	 * timestamp of the Tweet; this starts as null and is assigned later
 	 * @var \DateTime $VALID_TWEETDATE

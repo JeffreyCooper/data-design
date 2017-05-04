@@ -53,7 +53,7 @@ class LikeTest extends DataDesignTest {
 		$this->profile = new Profile(null, null,"@phpunit", "test@phpunit.de",$this->VALID_HASH, "+12125551212", $this->VALID_SALT);
 		$this->profile->insert($this->getPDO());
 		// create the and insert the mocked tweet
-		$this->tweet = new Tweet(null, $this->profile->getProfileId(), "PHPUnit like test passing");
+		$this->tweet = new Tweet(null, $this->profile->getProfileId(), "Unit favorite test passing");
 		$this->tweet->insert($this->getPDO());
 		// calculate the date (just use the time the unit test was setup...)
 		$this->VALID_LIKEDATE = new \DateTime();
