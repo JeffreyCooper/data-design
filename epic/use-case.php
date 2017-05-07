@@ -15,7 +15,7 @@
 		<main>
 			<h2>Ellen wants to favorite Very Bad Cat Condo so she can return later and find it easily.</h2>
 			<h3>User Story:</h3>
-			<p>As a user, I want to favorite Very Bad Cat Condo from www.verybadetsy.com.</p>
+			<p>As a user, I want to comment on Very Bad Cat Condo from www.verybadetsy.com.</p>
 				<ol>
 					<li>Click Login button.</li>
 					<li>Enter Username in login screen.</li>

@@ -29,7 +29,7 @@
 					<li>productId (primary key)</li>
 					<li>productProfileId (foreign key)</li>
 					<li>productTitle</li>
-					<li>productDescription</li>
+					<li>productDateTime</li>
 				</ul>
 			<h3>FAVORITE</h3>
 				<ul>

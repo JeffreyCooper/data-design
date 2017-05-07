@@ -23,7 +23,7 @@ CREATE TABLE product (
 	productId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 	productProfileId INT UNSIGNED NOT NULL,
 	productTitle VARCHAR(140) NOT NULL,
-	productDescription DATETIME(6) NOT NULL,
+	productDateTime DATETIME(6) NOT NULL,
 	INDEX(productProfileId),
 	FOREIGN KEY(productProfileId) REFERENCES profile(profileId),
 	PRIMARY KEY(productId)
