@@ -8,7 +8,7 @@ require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 
 use Edu\Cnm\DataDesign\{
 	Product,
-	// testing purposes only
+	// testing only
 	Profile
 };
 
@@ -31,7 +31,7 @@ $reply->data = null;
 
 try {
 	//establish the mySQL connection
-	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/ddctwitter.ini");
+	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/ddcdata-design.ini");
 
 	// mock a session and assign a specific user to it.
 	// only for testing purposes - not in the live code.
@@ -67,7 +67,7 @@ try {
 			if($product !== null) {
 				$reply->data = $product;
 			}
-		} else if(empty($tweetContent) === false) {
+		} else if(empty($productTitle) === false) {
 			$products = Product::getProductByProductTitle($pdo, $productTitle)->toArray();
 			if($products !== null) {
 				$reply->data = $products;
@@ -91,9 +91,9 @@ try {
 			throw(new \InvalidArgumentException ("No title for Product.", 405));
 		}
 
-		// make sure product date is accurate (optional field)
-		if(empty($requestObject->productDescription) === true) {
-			$requestObject->productDescription = null;
+		// make sure product date is accurate (required field)
+		if(empty($requestObject->productDateTime) === true) {
+			$requestObject->productDateTime = null;
 		}
 
 		//  make sure profileId is available
@@ -120,7 +120,7 @@ try {
 			}
 
 			// update all attributes
-			$product->setProductDescription($requestObject->productDescription);
+			$product->setProductDateTime($requestObject->productDateTime);
 			$product->setProductTitle($requestObject->productTitle);
 			$product->update($pdo);
 
