@@ -11,7 +11,7 @@
 require_once dirname(__DIR__, 3) . "/vendor/autoload.php";
 require_once dirname(__DIR__, 3) . "/php/classes/autoload.php";
 require_once dirname(__DIR__, 3) . "/php/lib/xsrf.php";
-require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
+require_once("/etc/apache2/~jcooper37/encrypted-config.php");
 
 use Edu\Cnm\DataDesign\{
 	Profile,
@@ -38,7 +38,7 @@ $reply->data = null;
 
 try {
 	//establish mySQL connection
-	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/ddcdata-design.ini");
+	$pdo = connectToEncryptedMySQL("/etc/apache2/~jcooper37/data-design.ini");
 
 	// mock a session and assign a specific user to it.
 	// only for testing purposes - not in the live code.
